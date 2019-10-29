@@ -1,23 +1,28 @@
 // characteristics of let
-// let x = 1
-// let x = 2  // let cannot define same variable
+/*
+let x = 1
+let x = 2  // let cannot define same variable
 
-// x = 3
+x = 3
 
-// console.log(x)
+console.log(x)
+*/
 
 
 // block-scope
-// let x = 1
+/*
+let x = 1
 
-// if (x === 1) {
-//   let x = 2
-//   console.log(x)  // variables can alive in block-scope
-// }
-// console.log(x)
+if (x === 1) {
+  let x = 2
+  console.log(x)  // variables can alive in block-scope
+}
+console.log(x)
+*/
 
 
 // diff of variable types
+/*
 let x  // let only define variable
 const y = 9  // const define variable and value
 
@@ -26,3 +31,4 @@ if (y === 9) {
   console.log(y)
 }
 console.log(y)
+*/
