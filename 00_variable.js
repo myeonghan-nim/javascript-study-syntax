@@ -32,3 +32,20 @@ if (y === 9) {
 }
 console.log(y)
 */
+
+
+// variable type var(~ES5)
+/*
+function varTest() {
+  var x = 1
+
+  if (true) {
+    var x = 2
+    console.log(x)
+  }
+  console.log(x)  // var has function-scope
+}
+
+varTest()
+console.log(x)
+*/
