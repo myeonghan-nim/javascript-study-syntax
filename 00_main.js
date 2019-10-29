@@ -1,4 +1,4 @@
-// alert('Hello, World!!!')
+alert('Hello, World!!!')
 
 // explanatory note
 /*
@@ -9,20 +9,16 @@ multi-line explanatory note
 document.write('<h1>Hello, World!</h1>')
 
 // tag selector
-/*
 document.querySelector('h1')
 document.querySelector('h1').innerText  // get text in tags
 document.querySelector('h1').innerText = 'byebye'  // update text value
-*/
 
 
 // deal with data
 // define and print data
-/*
 var name = 'mh'  // define data
 
 console.log(name)  // print data
-*/
 
 
 // loop with for
@@ -46,8 +42,8 @@ document.write(name)  // let type is mutuble
 const loc = 'GJ'
 document.write(loc)
 
-// loc = 'Seoul'
-// document.write(loc)  // const type is unmutuble
+loc = 'Seoul'
+document.write(loc)  // const type is unmutuble
 
 
 // calculation of datas
