@@ -9,16 +9,20 @@ multi-line explanatory note
 document.write('<h1>Hello, World!</h1>')
 
 // tag selector
-// document.querySelector('h1')
-// document.querySelector('h1').innerText  // get text in tags
-// document.querySelector('h1').innerText = 'byebye'  // update text value
+/*
+document.querySelector('h1')
+document.querySelector('h1').innerText  // get text in tags
+document.querySelector('h1').innerText = 'byebye'  // update text value
+*/
 
 
 // deal with data
 // define and print data
-// var name = 'mh'  // define data
+/*
+var name = 'mh'  // define data
 
-// console.log(name)  // print data
+console.log(name)  // print data
+*/
 
 
 // loop with for
