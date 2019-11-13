@@ -1,4 +1,4 @@
-// input and output in node.js
+// input and output in js
 const readline = require('readline')
 const userName = readline.createInterface(
   {
@@ -13,7 +13,7 @@ userName.question('input your name : ', answer => {
 })
 
 
-// input and output with HTML
+// input and output in HTML
 const userName = prompt('who are you?')
 
 let message = ''
@@ -37,16 +37,15 @@ let message = ''
 switch (userName) {
   case 'admin': {
     message = 'cannot login'
-    break
+    break  // switch needs break for break loop
   }
   case 'jmh': {
     message = 'hi, admin'
     break
   }
   default: {
-    // alway run after run switch
     message = `hi, ${userName}`
-  }
+  }  // alway run after run switch
 }
 
 console.log(message)
@@ -64,7 +63,6 @@ for (let i = 0; i < 5; i++) {
   console.log(i)
 }
 
-// loop in array
 const numbers = [1, 3, 5, 7, 9, 2, 4, 6, 8]
 
 for (let number of numbers) {

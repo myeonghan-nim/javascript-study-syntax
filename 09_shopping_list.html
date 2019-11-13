@@ -1,18 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Document</title>
+
 </head>
+
 <body>
+
   <h1>Shopping List</h1>
+
   <input id="item-input" type="text">
+
   <button id="add-button">Add</button>
   <button id="del-button">Delete</button>
-  <ul id="shopping-list">
-  </ul>
+
+  <ul id="shopping-list"></ul>
 
   <script>
     // 1. find tags(input, button, ul)
@@ -32,7 +41,9 @@
       const tag = document.createElement('li')
       
       tag.innerText = itemValue
-      ul.appendChild(tag)  // 2-3. add tags into ul
+      
+      // 2-3. add tags into ul
+      ul.appendChild(tag)
 
       tag.addEventListener('click', function (e) {
         if (tag.style.textDecoration === '') {
@@ -46,17 +57,19 @@
       const deleteBtn = document.createElement('button')
       
       deleteBtn.innerText = 'Delete'
+
       tag.appendChild(deleteBtn)
 
       deleteBtn.addEventListener('click', function (e) {
         tag.remove()
       })
-      
     })
 
     delButton.addEventListener('click', function (e) {
       ul.innerHTML = ''
     })
   </script>
+
 </body>
+
 </html>

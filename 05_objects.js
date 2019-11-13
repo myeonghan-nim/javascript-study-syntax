@@ -1,7 +1,7 @@
-// objects in js
+// object
 const me = {
   name: 'mh',
-  'phone number': '01012341234',
+  PH: '01012341234',
   product: {
     phone: 'S10 5G',
     notebook: 'Samsung Odyssey'
@@ -20,7 +20,7 @@ let comics = {
 }
 
 let bookStore = {
-  books,  // if name of key is same as name of value, programmer can write like this
+  books,  // if name of key, value is same, write like this
   comics
 }
 

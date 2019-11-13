@@ -1,7 +1,8 @@
-// define array
+// methods
 let colors = ['red', 'green', 'blue']
 
-// array.forEach()(same as for)
+
+// array.forEach()
 for (let color of colors) {
   console.log(color)
 }
@@ -14,10 +15,9 @@ colors.forEach((color, idx, array) => {
   console.log(color, idx, array)
 })
 
-// if variable and value is only one
 colors.forEach(color => console.log(color))
 
-// array.forEach() with object
+// object.forEach()
 function handlePosts () {
   const posts = [
     {
@@ -69,7 +69,7 @@ images.forEach(function (image) {
 console.log(areas)
 
 
-// array.map()(returns value)
+// array.map()
 const numbers = [1, 2, 3, 4, 5]
 const doubleNumbers = []
 
@@ -83,7 +83,7 @@ const double = numbers.map(number => 2 * number)
 console.log(doubleNumbers)
 console.log(double)
 
-// array.map() with object
+// object.map()
 const images = [
   {
     height: 10,
@@ -103,7 +103,7 @@ const areas = images.map(image => image.height * image.width)
 console.log(areas)
 
 
-// array.filter()(same as python filter)
+// array.filter()
 const numbers = [1, 2, 3, 4, 5]
 const evenNumbers = numbers.filter(function (number) {
   return number % 2 === 0
@@ -111,7 +111,7 @@ const evenNumbers = numbers.filter(function (number) {
 
 console.log(evenNumbers)
 
-// array.filter() with object
+// object.filter()
 const products = [
   {
     name: 'cucumber',
@@ -145,7 +145,7 @@ const total = scores.reduce((total, score) => total += score, 0)
 console.log(total)
 
 
-// array.find()(returns first found element in objects)
+// array.find()
 const users = [
   {
     name: 'change',

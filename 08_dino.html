@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <title>Document</title>
+
   <style>
     .bg {
       background-color: #f7f7f7;
@@ -12,8 +17,11 @@
       min-height: 90vh;
     }
   </style>
+
 </head>
+
 <body>
+
   <div class="bg">
     <img
       id="dino"
@@ -27,6 +35,7 @@
   <script>
     const dino = document.querySelector('#dino')
     const bg = document.querySelector('.bg').getBoundingClientRect()
+
     let x = 0
     let y = 0
 
@@ -52,11 +61,13 @@
       if (x + bg.width < 0 || x > bg.width) {
         x = 0
       }
-
+      
       if (y + bg.height < 0 || y > bg.height) {
         y = 0
       }
     })
   </script>
+
 </body>
+
 </html>
