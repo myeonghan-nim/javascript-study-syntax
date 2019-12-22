@@ -1,4 +1,4 @@
-# JavaScript Introduction
+# README
 
 ```javascript
 console.log('Hello, World!')
