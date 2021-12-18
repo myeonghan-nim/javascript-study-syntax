@@ -1,59 +1,49 @@
-// input and output in js
 const readline = require('readline')
-const userName = readline.createInterface(
+const name = readline.createInterface(
   {
     input: process.stdin,
     output: process.stdout
   }
 )
 
-userName.question('input your name : ', answer => {
+name.question('name?: ', answer => {
   console.log(answer)
-  userName.close()
+  name.close()
 })
 
+const userName = prompt('Who are you?')
+let message1 = ''
 
-// input and output in HTML
-const userName = prompt('who are you?')
-
-let message = ''
-
-if (userName === 'jmh') {
-  message = 'hi, admin'
+if (userName === 'admin') {
+  message1 = 'admin page'
 } else if (userName === 'happy') {
-  message = 'happy coding'
+  message1 = 'I`m Happy!'
 } else {
-  message = `hi, ${userName}`
+  message1 = `Hi, ${userName}!`
 }
 
-console.log(message)
+console.log(message1)
 
+const number = prompt('number?')
+let message2 = ''
 
-// input and output with switch
-const userName = prompt('who are you?')
-
-let message = ''
-
-switch (userName) {
-  case 'admin': {
-    message = 'cannot login'
-    break  // switch needs break for break loop
+switch (number) {
+  case 1: {
+    message2 = 'one'
+    break
   }
-  case 'jmh': {
-    message = 'hi, admin'
+  case 2: {
+    message2 = 'two'
     break
   }
   default: {
-    message = `hi, ${userName}`
-  }  // alway run after run switch
+    message2 = `???`
+  }
 }
 
-console.log(message)
+console.log(message2)
 
-
-// loop
 let i = 0
-
 while (i < 5) {
   console.log(i)
   i++
@@ -64,7 +54,6 @@ for (let i = 0; i < 5; i++) {
 }
 
 const numbers = [1, 3, 5, 7, 9, 2, 4, 6, 8]
-
 for (let number of numbers) {
   console.log(number)
 }

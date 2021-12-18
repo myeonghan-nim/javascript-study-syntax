@@ -1,25 +1,36 @@
-// characteristics of let
+// var: define, rewirte infinite / function-scope
+// let: define once, rewirte infinite / block-scope
+// const: define, rewirte once / block-scope
+
 let x = 1
-let x = 2  // let cannot define same variable
+// let x = 2
 
 x = 3
-
 console.log(x)
 
+function varTest() {
+  var x = 1
+  if (true) {
+    var x = 2
+    console.log(x)
+  }
+  console.log(x)
+}
 
-// block-scope
+varTest()
+console.log(x)
+
+// scope
 let x = 1
-
 if (x === 1) {
   let x = 2
-  console.log(x)  // let, const can alive in block-scope
+  console.log(x)
 }
 console.log(x)
 
-
-// diff of data types
-const y = 9  // const define variable and value
-let x  // let can define variable only
+// declare type
+const y = 9
+let x
 
 if (y === 9) {
   const y = 10
@@ -27,78 +38,54 @@ if (y === 9) {
 }
 console.log(y)
 
-
-// var(before ES6)
-function varTest() {
-  var x = 1
-
-  if (true) {
-    var x = 2
-    console.log(x)
-  }
-  console.log(x)  // var is function-scope
-}
-
-varTest()
-console.log(x)
-
-// var : define, rewirte inf / function-scope (before ES6)
-// let : define once, rewirte inf / block-scope
-// const : define, rewirte once / block-scope
-
-
-// define variables
+// define
 let dog
-let variableName  // carmelcase
+let variableName
+let dogs = []
+let isValid = false
 
-let dogs = []  // array(Object type)
+const API_KEY = ''
 
-function getName() {}  // define function
-const onClick = () => {}  // define event(start with on or off)
-
-let isValid = false  // define boolean(start with is)
+function getName() {}
+const onClick = () => {}
 
 class User {
   constructor (value) {
     this.name = value.name
-  }  // define constructor
-}  // define class(pascalcase)
-
-const API_KEY = ''  // all capital variable means unmutuble ever
+  }
+}
 
 // number
 const a = 12
 const b = -5
 const c = 3.14
 const d = 2.9e8
-const e = Infinity  // number
+const e = Infinity
 const f = -Infinity
-const g = NaN  // complex number prints NaN
+const g = NaN
 
-console.log(a, b, c, d, typeof e, f, typeof g)  // typeof returns type of variable
+console.log(a, b, c, d, typeof e, f, typeof g)
 console.log(Math.sqrt(-2))
 
 // string
-const sentence1 = 'hi\n'
-const sentence2 = "hihi\n"
-const sentence3 = `hi${sentence2}`
+const sentence1 = 'a\n'
+const sentence2 = 'b\n'
+const sentence3 = `c${sentence2}`
 
 console.log(sentence1 + sentence2, sentence3)
 
 // boolean
 const isValid = true
 
-// non-value
+// type check
 let first_name
-
-console.log(typeof first_name)  // undefined(auto), undefined
+console.log(typeof first_name)
 
 let last_name = null
-
-console.log(typeof last_name)  // null, object
+console.log(typeof last_name)
 
 console.log(null == undefined)
 console.log(null === undefined)
 
-console.log(null + 1)  // null can calculate
+console.log(null + 1)
 console.log(undefined + 1)

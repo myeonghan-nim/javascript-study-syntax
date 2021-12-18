@@ -1,13 +1,13 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
   var circumcenter = require("circumcenter")
   window.circumcenter = circumcenter
-  
+
   },{"circumcenter":2}],2:[function(require,module,exports){
   "use strict"
-  
+
   var dup = require("dup")
   var solve = require("robust-linear-solve")
-  
+
   function dot(a, b) {
     var s = 0.0
     var d = a.length
@@ -16,13 +16,13 @@
     }
     return s
   }
-  
+
   function barycentricCircumcenter(points) {
     var N = points.length
     if(N === 0) {
       return []
     }
-    
+
     var D = points[0].length
     var A = dup([points.length+1, points.length+1], 1.0)
     var b = dup([points.length+1], 1.0)
@@ -34,13 +34,13 @@
       b[i] = dot(points[i], points[i])
     }
     var x = solve(A, b)
-  
+
     var denom = 0.0
     var h = x[N+1]
     for(var i=0; i<h.length; ++i) {
       denom += h[i]
     }
-  
+
     var y = new Array(N)
     for(var i=0; i<N; ++i) {
       var h = x[i]
@@ -50,10 +50,10 @@
       }
       y[i] =  numer / denom
     }
-  
+
     return y
   }
-  
+
   function circumcenter(points) {
     if(points.length === 0) {
       return []
@@ -68,12 +68,12 @@
     }
     return result
   }
-  
+
   circumcenter.barycenetric = barycentricCircumcenter
   module.exports = circumcenter
   },{"dup":3,"robust-linear-solve":6}],3:[function(require,module,exports){
   "use strict"
-  
+
   function dupe_array(count, value, i) {
     var c = count[i]|0
     if(c <= 0) {
@@ -91,7 +91,7 @@
     }
     return result
   }
-  
+
   function dupe_number(count, value) {
     var result, i
     result = new Array(count)
@@ -100,7 +100,7 @@
     }
     return result
   }
-  
+
   function dupe(count, value) {
     if(typeof value === "undefined") {
       value = 0
@@ -119,13 +119,13 @@
     }
     return []
   }
-  
+
   module.exports = dupe
   },{}],4:[function(require,module,exports){
   "use strict"
-  
+
   module.exports = compressExpansion
-  
+
   function compressExpansion(e) {
     var m = e.length
     var Q = e[e.length-1]
@@ -158,14 +158,14 @@
   }
   },{}],5:[function(require,module,exports){
   "use strict"
-  
+
   var twoProduct = require("two-product")
   var robustSum = require("robust-sum")
   var robustScale = require("robust-scale")
   var compress = require("robust-compress")
-  
+
   var NUM_EXPANDED = 6
-  
+
   function cofactor(m, c) {
     var result = new Array(m.length-1)
     for(var i=1; i<m.length; ++i) {
@@ -179,7 +179,7 @@
     }
     return result
   }
-  
+
   function matrix(n) {
     var result = new Array(n)
     for(var i=0; i<n; ++i) {
@@ -190,14 +190,14 @@
     }
     return result
   }
-  
+
   function sign(n) {
     if(n & 1) {
       return "-"
     }
     return ""
   }
-  
+
   function generateSum(expr) {
     if(expr.length === 1) {
       return expr[0]
@@ -208,7 +208,7 @@
       return ["sum(", generateSum(expr.slice(0, m)), ",", generateSum(expr.slice(m)), ")"].join("")
     }
   }
-  
+
   function determinant(m) {
     if(m.length === 2) {
       return ["sum(prod(", m[0][0], ",", m[1][1], "),prod(-", m[0][1], ",", m[1][0], "))"].join("")
@@ -220,20 +220,20 @@
       return generateSum(expr)
     }
   }
-  
+
   function compileDeterminant(n) {
     var proc = new Function("sum", "scale", "prod", "compress", [
-      "function robustDeterminant",n, "(m){return compress(", 
+      "function robustDeterminant",n, "(m){return compress(",
         determinant(matrix(n)),
       ")};return robustDeterminant", n].join(""))
     return proc(robustSum, robustScale, twoProduct, compress)
   }
-  
+
   var CACHE = [
     function robustDeterminant0() { return [0] },
     function robustDeterminant1(m) { return [m[0][0]] }
   ]
-  
+
   function generateDispatch() {
     while(CACHE.length < NUM_EXPANDED) {
       CACHE.push(compileDeterminant(CACHE.length))
@@ -258,15 +258,15 @@
       module.exports[i] = CACHE[i]
     }
   }
-  
+
   generateDispatch()
   },{"robust-compress":4,"robust-scale":7,"robust-sum":8,"two-product":9}],6:[function(require,module,exports){
   "use strict"
-  
+
   var determinant = require("robust-determinant")
-  
+
   var NUM_EXPAND = 6
-  
+
   function generateSolver(n) {
     var funcName = "robustLinearSolve" + n + "d"
     var code = ["function ", funcName, "(A,b){return ["]
@@ -298,20 +298,20 @@
     }
     return proc(determinant)
   }
-  
+
   function robustLinearSolve0d() {
     return [ 0 ]
   }
-  
+
   function robustLinearSolve1d(A, b) {
     return [ [ b[0] ], [ A[0][0] ] ]
   }
-  
+
   var CACHE = [
     robustLinearSolve0d,
     robustLinearSolve1d
   ]
-  
+
   function generateDispatch() {
     while(CACHE.length < NUM_EXPAND) {
       CACHE.push(generateSolver(CACHE.length))
@@ -330,16 +330,16 @@
       module.exports[i] = CACHE[i]
     }
   }
-  
+
   generateDispatch()
   },{"robust-determinant":5}],7:[function(require,module,exports){
   "use strict"
-  
+
   var twoProduct = require("two-product")
   var twoSum = require("two-sum")
-  
+
   module.exports = scaleLinearExpansion
-  
+
   function scaleLinearExpansion(e, scale) {
     var n = e.length
     if(n === 1) {
@@ -385,9 +385,9 @@
   }
   },{"two-product":9,"two-sum":10}],8:[function(require,module,exports){
   "use strict"
-  
+
   module.exports = linearExpansionSum
-  
+
   //Easy case: Add two scalars
   function scalarScalar(a, b) {
     var x = a + b
@@ -401,7 +401,7 @@
     }
     return [x]
   }
-  
+
   function linearExpansionSum(e, f) {
     var ne = e.length|0
     var nf = f.length|0
@@ -515,7 +515,7 @@
       y = b - bv
       if(y) {
         g[count++] = y
-      } 
+      }
       _x = q1 + x
       _bv = _x - q1
       _av = _x - _bv
@@ -535,50 +535,50 @@
       g[count++] = q1
     }
     if(!count) {
-      g[count++] = 0.0  
+      g[count++] = 0.0
     }
     g.length = count
     return g
   }
   },{}],9:[function(require,module,exports){
   "use strict"
-  
+
   module.exports = twoProduct
-  
+
   var SPLITTER = +(Math.pow(2, 27) + 1.0)
-  
+
   function twoProduct(a, b, result) {
     var x = a * b
-  
+
     var c = SPLITTER * a
     var abig = c - a
     var ahi = c - abig
     var alo = a - ahi
-  
+
     var d = SPLITTER * b
     var bbig = d - b
     var bhi = d - bbig
     var blo = b - bhi
-  
+
     var err1 = x - (ahi * bhi)
     var err2 = err1 - (alo * bhi)
     var err3 = err2 - (ahi * blo)
-  
+
     var y = alo * blo - err3
-  
+
     if(result) {
       result[0] = y
       result[1] = x
       return result
     }
-  
+
     return [ y, x ]
   }
   },{}],10:[function(require,module,exports){
   "use strict"
-  
+
   module.exports = fastTwoSum
-  
+
   function fastTwoSum(a, b, result) {
     var x = a + b
     var bv = x - a

@@ -1,75 +1,53 @@
 <!DOCTYPE html>
-
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Shopping List</h1>
+    <input id="item-input" type="text" />
+    <button id="add-button">Add</button>
+    <button id="del-button">Delete</button>
+    <ul id="shopping-list"></ul>
+    <script>
+      const input = document.querySelector("#item-input");
+      const addButton = document.querySelector("#add-button");
+      const delButton = document.querySelector("#del-button");
+      const ul = document.querySelector("#shopping-list");
 
-<head>
+      addButton.addEventListener("click", function (e) {
+        const itemValue = input.value;
+        input.value = "";
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        const tag = document.createElement("li");
+        tag.innerText = itemValue;
 
-  <title>Document</title>
+        ul.appendChild(tag);
 
-</head>
+        tag.addEventListener("click", function (e) {
+          if (tag.style.textDecoration === "") {
+            tag.style.textDecoration = "line-through";
+          } else {
+            tag.style.textDecoration = "";
+          }
+        });
 
-<body>
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "Delete";
 
-  <h1>Shopping List</h1>
+        tag.appendChild(deleteBtn);
 
-  <input id="item-input" type="text">
+        deleteBtn.addEventListener("click", function (e) {
+          tag.remove();
+        });
+      });
 
-  <button id="add-button">Add</button>
-  <button id="del-button">Delete</button>
-
-  <ul id="shopping-list"></ul>
-
-  <script>
-    // 1. find tags(input, button, ul)
-    const input = document.querySelector('#item-input')
-    const addButton = document.querySelector('#add-button')
-    const delButton = document.querySelector('#del-button')
-    const ul = document.querySelector('#shopping-list')
-
-    // 2. make event
-    addButton.addEventListener('click', function (e) {
-      // 2-1. get inpputed data
-      const itemValue = input.value
-      
-      input.value = ''
-      
-      // 2-2. rap data with tags
-      const tag = document.createElement('li')
-      
-      tag.innerText = itemValue
-      
-      // 2-3. add tags into ul
-      ul.appendChild(tag)
-
-      tag.addEventListener('click', function (e) {
-        if (tag.style.textDecoration === '') {
-          tag.style.textDecoration = 'line-through'
-        } else {
-          tag.style.textDecoration = ''
-        }
-      })
-      
-      // 3. make delete
-      const deleteBtn = document.createElement('button')
-      
-      deleteBtn.innerText = 'Delete'
-
-      tag.appendChild(deleteBtn)
-
-      deleteBtn.addEventListener('click', function (e) {
-        tag.remove()
-      })
-    })
-
-    delButton.addEventListener('click', function (e) {
-      ul.innerHTML = ''
-    })
-  </script>
-
-</body>
-
+      delButton.addEventListener("click", function (e) {
+        ul.innerHTML = "";
+      });
+    </script>
+  </body>
 </html>

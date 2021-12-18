@@ -1,4 +1,4 @@
-// +, -, *, / operation
+// operator
 let a = 0
 
 a = a + 3
@@ -10,8 +10,7 @@ console.log(a)
 a++
 console.log(a)
 
-
-// compare operation
+// compare
 console.log(3 < 2)
 console.log('a' < 'b')
 console.log('a' < 'A')
@@ -20,13 +19,10 @@ console.log(1 == '1')
 console.log(1 === '1')
 console.log(1 === Number('1'))
 
-console.log(true && false)  // and
-console.log(true || false)  // or
-console.log(!true)  // not
+console.log(true && false)
+console.log(true || false)
+console.log(!true)
 
-
-// comprehense operation
-const b = 10
-const result = b > 5 ? true : false  // same as A if .. else B
-
+// comprehense
+const result = 10 > 5 ? true : false
 console.log(result)
