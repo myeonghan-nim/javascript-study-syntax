@@ -1,5 +1,1 @@
-# Study: javascript
-
-```javascript
-console.log("Hello, JS!");
-```
+# Study: javascript syntax
