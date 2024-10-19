@@ -3,11 +3,11 @@
 // const: define, rewirte once / block-scope
 
 let x = 1
-// let x = 2
 
 x = 3
 console.log(x)
 
+// function
 function varTest() {
   var x = 1
   if (true) {
@@ -21,28 +21,24 @@ varTest()
 console.log(x)
 
 // scope
-let x = 1
 if (x === 1) {
   let x = 2
   console.log(x)
 }
 console.log(x)
 
-// declare type
 const y = 9
-let x
-
 if (y === 9) {
   const y = 10
   console.log(y)
 }
 console.log(y)
 
-// define
+// naming convention
 let dog
 let variableName
 let dogs = []
-let isValid = false
+let boolVariable = false
 
 const API_KEY = ''
 
@@ -78,11 +74,11 @@ console.log(sentence1 + sentence2, sentence3)
 const isValid = true
 
 // type check
-let first_name
-console.log(typeof first_name)
+let firstName
+console.log(typeof firstName)
 
-let last_name = null
-console.log(typeof last_name)
+let lastName = null
+console.log(typeof lastName)
 
 console.log(null == undefined)
 console.log(null === undefined)

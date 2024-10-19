@@ -6,42 +6,42 @@ const name = readline.createInterface(
   }
 )
 
-name.question('name?: ', answer => {
+name.question('What is your name?: ', answer => {
   console.log(answer)
   name.close()
 })
 
 const userName = prompt('Who are you?')
-let message1 = ''
 
+let userResult = ''
 if (userName === 'admin') {
-  message1 = 'admin page'
+  userResult = 'Welcome, Admin!'
 } else if (userName === 'happy') {
-  message1 = 'I`m Happy!'
+  userResult = 'Happy!'
 } else {
-  message1 = `Hi, ${userName}!`
+  userResult = `Hi, ${userName}!`
 }
 
-console.log(message1)
+console.log(userResult)
 
-const number = prompt('number?')
-let message2 = ''
+const number = prompt('Press a number?')
 
+let numberResult = ''
 switch (number) {
   case 1: {
-    message2 = 'one'
+    numberResult = 'It is one.'
     break
   }
   case 2: {
-    message2 = 'two'
+    numberResult = 'It is two.'
     break
   }
   default: {
-    message2 = `???`
+    numberResult = `It is ${number}.`
   }
 }
 
-console.log(message2)
+console.log(numberResult)
 
 let i = 0
 while (i < 5) {

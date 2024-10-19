@@ -1,26 +1,26 @@
-// object
 const person = {
-  name: 'unknown',
+  name: 'defaultName',
   product: {
-    phone: 'S10 5G',
-    notebook: 'HP Omen'
+    phone: 'defaultPhone',
+    notebook: 'defaultNotebook'
   }
 }
 
 console.log(person.name)
 console.log(person.product.notebook)
 
-let books = ['node', 'python']
-let comics = {
+let programmingLanguage = ['node', 'python']
+let sample = {
   a: ['A', 'B'],
   1: [2, 3]
 }
-let bookStore = {
-  books,
-  comics
+
+let objectInObject = {
+  programmingLanguage,
+  sample
 }
 
-console.log(bookStore)
+console.log(objectInObject)
 
 const jsonData = JSON.stringify(person)
 console.log(jsonData)

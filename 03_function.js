@@ -1,4 +1,3 @@
-// define
 function add(num1, num2) {
   return num1 + num2
 }
@@ -9,33 +8,21 @@ const sub = function (num1, num2) {
 }
 console.log(sub(10, 2))
 
-const greet = (name) => {
-  console.log(`Hi, ${name}!`)
+const arrow = (c) => {
+  console.log(`You entered ${c}.`)
 }
-greet('change')
-
-const send = name => {
-  console.log(`Bye, ${name}!`)
-}
-send('Seoul')
-
-const call = name => `${name}`
-console.log(call('Busan'))
+arrow('change')
 
 let square = num => num ** 2
 console.log(square(4))
 
+let returnObject = () => ({ key: 'value' })
+console.log(returnObject())
+
 let noArgs = _ => 'No args.'
 console.log(noArgs())
 
-(function (name) {console.log(name)})('unknown')
+(function (c) {console.log(c)})('The most simple function ever.')
 
-// object
-const a = {}
-console.log(typeof a)
-
-let returnObject = () => ({key: 'value'})
-
-// default value
-const use = (item='none') => `${item} exist.`
+const use = (item='default') => `${item} exist.`
 console.log(use())

@@ -1,12 +1,8 @@
-// loop
+// forEach
 let colors = ['red', 'green', 'blue']
 
-colors.forEach(function (color, idx, array) {
-  console.log(color, idx, array)
-})
-colors.forEach((color, idx, array) => {
-  console.log(color, idx, array)
-})
+colors.forEach(function (color, idx, array) {console.log(color, idx, array)})
+colors.forEach((color, idx, array) => {console.log(color, idx, array)})
 
 const posts = [
   {
@@ -18,19 +14,17 @@ const posts = [
     title: 'python',
   },
 ]
+
 posts.forEach(post => console.log(post, post.id, post.title))
 
 const result = []
 posts.forEach(post => result.push(post.id + ' ' + post.title))
-
 console.log(result)
 
 // map
 const numbers = [1, 2, 3, 4, 5]
 
-const double = numbers.map(function (number) {
-  return 2 * number
-})
+const double = numbers.map(function (number) {return 2 * number})
 console.log(double)
 
 const triple = numbers.map(number => 3 * number)
@@ -57,9 +51,7 @@ console.log(areas)
 // filter
 const booleans = [true, false, false, true, true, false]
 
-const isTrue = booleans.filter(function (bool) {
-  return bool % 2 === 1
-})
+const isTrue = booleans.filter(function (bool) {return bool % 2 === 1})
 console.log(isTrue)
 
 const products = [
@@ -87,9 +79,7 @@ console.log(fruits)
 // reduce
 const scores = [100, 80, 88, 92, 95, 70]
 
-const sum = scores.reduce((res, score) => {
-  return res += score
-}, 0)
+const sum = scores.reduce((res, score) => {return res += score}, 0)
 console.log(sum)
 
 const avg = scores.reduce((res, score) => res += score / scores.length, 0)
@@ -119,12 +109,8 @@ const samples = [
   },
 ]
 
-const isEven = samples.find(function (sample) {
-  return sample.id % 2 === 0
-})
+const isEven = samples.find(function (sample) {return sample.id % 2 === 0})
 console.log(isEven)
 
-const biggerThanC = samples.find(function (sample) {
-  return sample.string > 'c'
-})
+const biggerThanC = samples.find(function (sample) {return sample.string > 'c'})
 console.log(biggerThanC)
