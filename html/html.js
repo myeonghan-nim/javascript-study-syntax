@@ -21,7 +21,6 @@ if (userName === 'admin') {
 } else {
   userResult = `Hi, ${userName}!`
 }
-
 console.log(userResult)
 
 const number = prompt('Press a number?')
@@ -40,7 +39,6 @@ switch (number) {
     numberResult = `It is ${number}.`
   }
 }
-
 console.log(numberResult)
 
 let i = 0
